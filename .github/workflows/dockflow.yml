@@ -35,11 +35,11 @@ jobs:
 
       # Шаг 3: Собираем Docker образ
       - name: Build Docker Image
-        run: sudo docker build -t  ${{ env.IMAGE_NAME }}:${{ env.TAG }} .
+        run: docker build -t  ${{ env.IMAGE_NAME }}:${{ env.TAG }} .
 
       # Шаг 5: Пушим Docker образ в Docker Hub
       - name: Push Docker Image
-        run: sudo docker push  ${{ env.IMAGE_NAME }}:${{ env.TAG }}
+        run: docker push  ${{ env.IMAGE_NAME }}:${{ env.TAG }}
   deploy_app:
     needs: build_app
     runs-on: self-hosted
