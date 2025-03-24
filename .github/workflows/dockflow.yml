@@ -40,8 +40,7 @@ jobs:
       # Шаг 5: Пушим Docker образ в Docker Hub
       - name: Push Docker Image
         run: docker push  ${{ env.IMAGE_NAME }}:${{ env.TAG }}
-
-deploy_app:
+  deploy_app:
     needs: build_app
     runs-on: self-hosted
     steps:
@@ -78,4 +77,4 @@ deploy_app:
 
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f ./graduateapp.yaml -n graduateapp      
+          kubectl apply -f ./graduateapp.yaml -n graduateapp
