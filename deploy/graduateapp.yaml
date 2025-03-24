@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: graduateapp
-        image: plonqnet/graduateapp:1.0
+        image: plonqnet/graduateapp
         resources:
           requests:
             cpu: "1"
