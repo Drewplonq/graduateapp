@@ -69,7 +69,7 @@ jobs:
 
       - name: Replace image tag in graduateapp.yaml
         run: |
-          if [ ! -f ./manifest/app.yaml ]; then
+          if [ ! -f ./graduateapp.yaml ]; then
             echo "graduateapp.yaml not found in the current directory"
             exit 1
           fi
