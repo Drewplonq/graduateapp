@@ -69,12 +69,12 @@ jobs:
 
       - name: Replace image tag in graduateapp.yaml
         run: |
-          if [ ! -f /graduateapp.yaml ]; then
+          if [ ! -f ./deploy/graduateapp.yaml ]; then
             echo "graduateapp.yaml not found in the current directory"
             exit 1
           fi
-          sed -i "s|image: plonqnet/graduateapp:.*|image: ${{ env.IMAGE_NAME }}:${{ env.VERSION }}|" /graduateapp.yaml 
+          sed -i "s|image: plonqnet/graduateapp:.*|image: ${{ env.IMAGE_NAME }}:${{ env.VERSION }}|" ./deploy/graduateapp.yaml 
 
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f /graduateapp.yaml -n graduateapp
+          kubectl apply -f ./deploy/graduateapp.yaml -n graduateapp
